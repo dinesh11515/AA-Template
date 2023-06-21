@@ -1,4 +1,4 @@
-import { particleLogin } from "../components/onboard/particle";
+import { particleLogin } from "../components/onboard/Particle/particle";
 import { connectWallet } from "../components/onboard/Dataverse-wallet/wallet";
 import { useGoogleLogin } from "@react-oauth/google";
 import { handleLoggedInToGoogle } from "@/components/onboard/LIT/LIT";
