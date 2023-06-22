@@ -1,6 +1,7 @@
 import { ParticleNetwork, WalletEntryPosition } from "@particle-network/auth";
 import { ParticleProvider } from "@particle-network/provider";
 import { ethers } from "ethers";
+
 const particle = new ParticleNetwork({
   projectId: process.env.NEXT_PUBLIC_PARTICLE_PROJECT_ID,
   clientKey: process.env.NEXT_PUBLIC_PARTICLE_CLIENT_KEY,
@@ -29,10 +30,14 @@ const particle = new ParticleNetwork({
 
 export const particleLogin = async () => {
   try {
-    const userInfo = await particle.auth.login({
-      preferredAuthType: "email",
-    });
-    console.log(userInfo);
+    const result = particle.auth.isLogin();
+    if (!result) {
+      const userInfo = await particle.auth.login({
+        preferredAuthType: "email",
+      });
+      console.log(userInfo);
+    }
+
     const particleProvider = new ParticleProvider(particle.auth);
     const ethersProvider = new ethers.providers.Web3Provider(
       particleProvider,
