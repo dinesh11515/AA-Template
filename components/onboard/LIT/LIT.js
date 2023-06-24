@@ -12,7 +12,10 @@ export const handleLoggedInToGoogle = async (credentialResponse) => {
   try {
     const requestId = await mintPkpWithRelayer(credentialResponse);
     await pollRequestUntilTerminalState(requestId);
-    await handleStoreEncryptionConditionNodes(credentialResponse);
+    const { pkpEthersWallet } = await handleStoreEncryptionConditionNodes(
+      credentialResponse
+    );
+    return pkpEthersWallet;
   } catch (e) {
     console.log(e);
   }
@@ -235,6 +238,7 @@ async function walletSetup(authSig, pkpPublicKey) {
     await pkpEthersWallet.init();
 
     console.log("pkpEthersWallet", pkpEthersWallet);
+    return pkpEthersWallet;
   } catch (err) {
     console.log(err);
   }

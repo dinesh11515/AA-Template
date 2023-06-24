@@ -9,7 +9,6 @@ export const connectWallet = async () => {
     const runtimeConnector = new RuntimeConnector(Extension);
     const res = await runtimeConnector.connectWallet();
     console.log(res);
-    console.log(await runtimeConnector.wallet());
   } catch (error) {
     console.log(error);
   }
