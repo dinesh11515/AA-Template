@@ -1,38 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AA Temp
 
-## Getting Started
+This AA Wallet Template was created to help hackers or developers who wish to create an AA wallet, particularly for hackathons. This template includes fundamental features such as user operations, transaction bundling and master key management, allowing hackers to concentrate on developing the core functionalities of their AA wallet using this foundation.so they can more focus on their core functionalities rather wasting time on building this base stuff. This wallet master key management was Powered by LIT PKP's, Particle and Dataverse Wallet.This uses the Stackup's bundler and Userop.js to do the transaction bundling and user operations.
 
-First, run the development server:
+[demo video]()
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+[live link](https://aa-template.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How to use this template
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Please clone the repository and ensure that you add a .env file, using the provided .env.example as a reference for setting the required variables.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Technologies Used
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Particle
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Leveraged the Particle Network Auth service to use MPC-TSS as master key for AA wallet.
 
-## Learn More
+[code](https://github.com/dinesh11515/AA-Template/blob/main/components/onboard/Particle/particle.js)
 
-To learn more about Next.js, take a look at the following resources:
+### Lit Protocol
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Leveraged the LIT PKPS to provide PKP as master key for AA wallet.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[code](https://github.com/dinesh11515/AA-Template/blob/main/components/onboard/LIT/LIT.js)
 
-## Deploy on Vercel
+### Polybase
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This made full use of Polybase to efficiently store all wallet information.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[code](https://github.com/dinesh11515/AA-Template/blob/main/pages/wallet/%5Baddress%5D.js#L28)
+
+### Dataverse-os wallet
+
+Leveraged the Dataverse-os wallet to enable the wallet connection.
+
+[code](https://github.com/dinesh11515/AA-Template/blob/main/components/onboard/Dataverse-wallet/wallet.js)
+
+### BlockPI Network
+
+Leveraged the BlockPI Network Mumbai RPC URL to power the AA-Temp
